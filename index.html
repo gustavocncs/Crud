@@ -1,26 +1,57 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <title>CRUD de Contatos</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lista de Contatos</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="card">
+        <div class="header">
+          <div>
+            <h1>Lista de Contatos</h1>
+            </p>
+          </div>
+        </div>
 
-  <div class="container">
-    <h1>CRUD de Contatos</h1>
+        <div class="search-box">
+          <label for="nome"><strong>Buscar:</strong></label>
+          <input
+            type="text"
+            id="search"
+            placeholder="Buscar por nome ou e-mail"
+          />
+        </div>
 
-    <input type="text" id="search" placeholder="Buscar por nome ou email">
+        <form id="form" class="form">
+          <div class="input-group">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" placeholder="Digite o nome" required />
+          </div>
 
-    <form id="form">
-      <input type="text" id="nome" placeholder="Nome" required>
-      <input type="email" id="email" placeholder="Email" required>
-      <button type="submit">Salvar</button>
-    </form>
+          <div class="input-group">
+            <label for="email">E-mail:</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="Digite o e-mail"
+              required
+            />
+          </div>
 
-    <ul id="lista"></ul>
-  </div>
+          <button type="submit" class="save-btn">Salvar contato</button>
+        </form>
 
-  <script src="script.js"></script>
-</body>
+        <div class="list-header">
+          <h2>Lista de contatos</h2>
+        </div>
+
+        <ul id="lista" class="contact-list"></ul>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
 </html>
