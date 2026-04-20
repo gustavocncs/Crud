@@ -10,14 +10,11 @@
     <main class="app">
       <section class="card">
         <div class="header">
-          <div>
-            <h1>Lista de Contatos</h1>
-            </p>
-          </div>
+          <h1>Lista de Contatos</h1>
         </div>
 
         <div class="search-box">
-          <label for="nome"><strong>Buscar:</strong></label>
+          <label for="search"><strong>Buscar:</strong></label>
           <input
             type="text"
             id="search"
@@ -41,16 +38,34 @@
             />
           </div>
 
-          <button type="submit" class="save-btn">Salvar contato</button>
+          <div class="form-actions">
+            <button type="submit" class="save-btn" id="save-btn">Salvar contato</button>
+            <button type="button" class="cancel-btn" id="cancel-btn" style="display:none">Cancelar</button>
+          </div>
         </form>
 
         <div class="list-header">
           <h2>Lista de contatos</h2>
+          <span class="count" id="count"></span>
         </div>
 
         <ul id="lista" class="contact-list"></ul>
+
+        <div class="empty-state" id="empty-state" style="display:none">
+          <p>Nenhum contato encontrado.</p>
+        </div>
       </section>
     </main>
+
+    <div class="modal-overlay" id="modal" style="display:none">
+      <div class="modal">
+        <p>Deseja excluir este contato?</p>
+        <div class="modal-actions">
+          <button id="modal-confirm" class="danger-btn">Excluir</button>
+          <button id="modal-cancel" class="cancel-btn">Cancelar</button>
+        </div>
+      </div>
+    </div>
 
     <script src="script.js"></script>
   </body>
