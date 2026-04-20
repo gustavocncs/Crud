@@ -47,23 +47,8 @@ body {
   margin-bottom: 24px;
 }
 
-.eyebrow {
-  color: #93c5fd;
-  font-size: 0.85rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 8px;
-}
-
 .header h1 {
   font-size: 2rem;
-  margin-bottom: 10px;
-}
-
-.subtitle {
-  color: var(--muted);
-  line-height: 1.5;
 }
 
 .search-box {
@@ -109,7 +94,13 @@ input:focus {
   box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.18);
 }
 
+.form-actions {
+  display: flex;
+  gap: 10px;
+}
+
 .save-btn {
+  flex: 1;
   border: none;
   border-radius: 14px;
   padding: 14px 18px;
@@ -126,12 +117,40 @@ input:focus {
   transform: translateY(-1px);
 }
 
+.cancel-btn {
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  padding: 14px 18px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.cancel-btn:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+}
+
 .list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin-bottom: 14px;
 }
 
 .list-header h2 {
   font-size: 1.2rem;
+}
+
+.count {
+  font-size: 0.85rem;
+  color: var(--muted);
+  background: rgba(255,255,255,0.06);
+  padding: 4px 10px;
+  border-radius: 99px;
 }
 
 .contact-list {
@@ -158,21 +177,33 @@ input:focus {
   background: rgba(255, 255, 255, 0.08);
 }
 
-.contact-list li strong {
-  display: block;
-  font-size: 1.05rem;
-  margin-bottom: 6px;
+/* Destaque visual no item sendo editado */
+.contact-list li.editing {
+  border-color: var(--edit);
+  background: rgba(245, 158, 11, 0.08);
 }
 
-.contact-list li div:first-child {
-  color: var(--text);
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
   line-height: 1.5;
+}
+
+.contact-info strong {
+  font-size: 1.05rem;
+}
+
+.contact-info span {
+  color: var(--muted);
+  font-size: 0.9rem;
 }
 
 .actions {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
+  flex-shrink: 0;
 }
 
 .actions button {
@@ -183,21 +214,79 @@ input:focus {
   font-weight: 600;
   cursor: pointer;
   transition: 0.2s ease;
+  font-size: 0.9rem;
 }
 
-.actions button:first-child {
+.btn-edit {
   background: var(--edit);
 }
 
-.actions button:first-child:hover {
+.btn-edit:hover {
   background: var(--edit-hover);
 }
 
-.actions button:last-child {
+.btn-delete {
   background: var(--danger);
 }
 
-.actions button:last-child:hover {
+.btn-delete:hover {
+  background: var(--danger-hover);
+}
+
+/* Estado vazio */
+.empty-state {
+  text-align: center;
+  padding: 40px 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* Modal de confirmação */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  backdrop-filter: blur(4px);
+}
+
+.modal {
+  background: #1e293b;
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  padding: 28px 32px;
+  max-width: 360px;
+  width: 90%;
+  text-align: center;
+}
+
+.modal p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  color: var(--text);
+}
+
+.modal-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.danger-btn {
+  border: none;
+  border-radius: 12px;
+  padding: 10px 20px;
+  background: var(--danger);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.danger-btn:hover {
   background: var(--danger-hover);
 }
 
@@ -221,5 +310,9 @@ input:focus {
 
   .actions button {
     flex: 1;
+  }
+
+  .form-actions {
+    flex-direction: column;
   }
 }
